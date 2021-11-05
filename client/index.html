@@ -5,7 +5,19 @@
   </head>
   <body class="container">
     <button id="complimentButton">Get a compliment</button>
+    <br>
+    <button id="fortuneButton">Get a fortune</button>
 
+    <div>
+        <h1>
+        I am personally an appreciator of malaphor's. What is a malaphor you ask? Well a quick google search would tell you,
+         and i quote "A Malaphor is an error in which two similar figures of speech are merged, producing an often nonsensical 
+         result." So bellow is a malaphor generator to make you laugh...well i havent built it yet... 
+         but it will be there... we'll burn that bridge when we get to it.
+        </h1>
+    </div>
+
+    <button id="malaphorBtn">Click me for a malaphor</button>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script>
       document.getElementById("complimentButton").onclick = function () {
@@ -14,6 +26,25 @@
               const data = response.data;
               alert(data);
             });
+      };
+      const fortuneBtn = document.getElementById("fortuneButton")
+      fortuneBtn.addEventListener("click", getFortune)
+      function getFortune(){
+        axios.get("http://localhost:4000/api/fortunes/")
+        .then(function (response) {
+          const comp = response.data;
+          alert(comp)
+        });
+      };
+
+      const malBtn = document.getElementById("malaphorBtn")
+      malBtn.addEventListener("click", getMalaphor)
+      function getMalaphor(){
+        axios.get("http://localhost:4000/api/malaphors/")
+        .then(function (response) {
+          const malaphor = response.data;
+          alert(malaphor)
+        });
       };
     </script>
   </body>
