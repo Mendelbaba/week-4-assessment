@@ -78,6 +78,41 @@ app.post("/api/malaphors",(req,res) => {
 // })
 
 
+app.get("/api/poems", (req, res) => {
+  const poems = ["Margaret Atwood You fit into me. you fit into me like a hook into an eye a fish hook an open eye",
+  'EZRA POUND “IN A STATION OF THE METRO” ANAIS NIN “RISK” And then the day came,when the risk to remain tight in a bud was more painful than the risk it took to blossom.',
+  'HENRY DAVID THOREAU “MY LIFE HAS BEEN THE POEM I WOULD HAVE WRIT” My life has been the poem I would have writ But I could not both live and utter it.',
+    
+    
+    
+
+  ];
+
+  let randomIndex = Math.floor(Math.random() * poems.length);
+  let randomPoem = poems[randomIndex];
+  
+  res.status(200).send(randomPoem);
+
+})
+
+
+app.get("/api/motivation", (req, res) => {
+  const motivation = [ 'There are two ways of spreading light: to be the candle or the mirror that reflects it. – Edith Wharton',
+  'You do not find the happy life. You make it. – Camilla Eyring Kimball',
+  'The most wasted of days is one without laughter. – E.E. Cummings',
+  'Stay close to anything that makes you glad you are alive. – Hafez',
+    
+    
+
+  ];
+
+  let randomIndex = Math.floor(Math.random() * motivation.length);
+  let randomMotivation = motivation[randomIndex];
+  
+  res.status(200).send(randomMotivation);
+
+})
+
 
 
 app.listen(4000, () => console.log("Server running on 4000"));
@@ -85,6 +120,3 @@ app.listen(4000, () => console.log("Server running on 4000"));
 
 
 
-// app.delete(`/api/houses/:id`, deleteHouse)
-// app.post(`/api/houses`, createHouse)
-// app.put(`/api/houses/:id`, updateHouse)

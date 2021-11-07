@@ -29,6 +29,9 @@
 </form>
 </div>
 <div>
+  <button id="poemBtn">Click me for a poem</button>
+  <button id="motivationBtn">Click me for a motivational quote</button>
+
   
 </div>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
@@ -71,6 +74,27 @@
         });
       };
 
+
+      const poemBtn = document.getElementById("poemBtn")
+      poemBtn.addEventListener("click", getPoem)
+      function getPoem(){
+        axios.get("http://localhost:4000/api/poems/")
+        .then(function (response) {
+          const poem = response.data;
+          alert(poem)
+        });
+      };
+
+
+      const motivationBtn = document.getElementById("motivationBtn")
+      motivationBtn.addEventListener("click", getMotivation)
+      function getMotivation(){
+        axios.get("http://localhost:4000/api/motivation/")
+        .then(function (response) {
+          const motivation = response.data;
+          alert(motivation)
+        });
+      };
 
     </script>
   </body>
