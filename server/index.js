@@ -8,6 +8,16 @@ app.use(cors());
 
 app.use(express.json()); // When we want to be able to accept JSON.
 
+const malaphors = ["You opened this can of worms, now you gotta sleep in it.",
+"We will burn that bridge when we get there.",
+"There's more than one way to beat a dead horse",
+"Dont count your blessings before they hatch.",
+"If it ain’t rocket surgery, don’t fix it.",
+"You can kill two birds in the hand with one stone in a bush",
+"	He doesn't have a leg to stand on or a window to throw it out of."
+
+];
+
 app.get("/api/compliment", (req, res) => {
   const compliments = ["Gee, you're a smart cookie!",
 					 "Cool shirt!",
@@ -39,15 +49,15 @@ app.get("/api/fortunes", (req, res) => {
 })
 
 app.get("/api/malaphors", (req, res) => {
-  const malaphors = ["You opened this can of worms, now you gotta sleep in it.",
-    "We will burn that bridge when we get there.",
-    "There's more than one way to beat a dead horse",
-    "Dont count your blessings before they hatch.",
-    "If it ain’t rocket surgery, don’t fix it.",
-    "You can kill two birds in the hand with one stone in a bush",
-    "	He doesn't have a leg to stand on or a window to throw it out of."
+  // const malaphors = ["You opened this can of worms, now you gotta sleep in it.",
+  //   "We will burn that bridge when we get there.",
+  //   "There's more than one way to beat a dead horse",
+  //   "Dont count your blessings before they hatch.",
+  //   "If it ain’t rocket surgery, don’t fix it.",
+  //   "You can kill two birds in the hand with one stone in a bush",
+  //   "	He doesn't have a leg to stand on or a window to throw it out of."
 
-  ];
+  // ];
 
   let randomIndex = Math.floor(Math.random() * malaphors.length);
   let randomMalaphor = malaphors[randomIndex];
@@ -56,4 +66,25 @@ app.get("/api/malaphors", (req, res) => {
 
 })
 
+app.post("/api/malaphors",(req,res) => {
+  console.log('click')
+})
+// const taskList = []
+// app.post("/api/toDoList", (req, res) => {
+  // console.log('click')
+  // let newTask = req.body
+  // taskList.push(newTask);
+  // res.status(200).send(taskList);
+// })
+
+
+
+
 app.listen(4000, () => console.log("Server running on 4000"));
+
+
+
+
+// app.delete(`/api/houses/:id`, deleteHouse)
+// app.post(`/api/houses`, createHouse)
+// app.put(`/api/houses/:id`, updateHouse)
